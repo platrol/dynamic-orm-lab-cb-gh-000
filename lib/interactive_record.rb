@@ -33,13 +33,12 @@ class InteractiveRecord
 
   def col_names_for_insert
     self.class.column_names.delete_if{|c| c == 'id'}.join(", ")
-
   end
 
   def values_for_insert
     values = []
     self.class.column_names.each do |column|
-      values << "'#{self.send(column)}'" unless column == 'id'
+      values << "'#{self.send(column)}'" unless self.send(column) == nil
   end
   values.join(", ")
 end
