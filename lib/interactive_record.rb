@@ -59,9 +59,6 @@ end
     value = row.values.first.class == Fixnum ?  row.values.first : "'#{row.values.first}'"
       sql = "SELECT * FROM #{table_name} WHERE  #{row.keys.first} = #{value};"
       DB[:conn].execute(sql)
-
     end
-
-
-
+    
 end
